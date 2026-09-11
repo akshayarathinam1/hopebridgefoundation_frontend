@@ -46,9 +46,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6"
           >
-            Together, We Can Change A{" "}
+            Give Hope. Create Change.{" "}
             <span className="relative inline-block text-white">
-              Child&rsquo;s World
+              Transform Lives.
               <svg
                 className="absolute -bottom-2 left-0 w-full h-3 text-brand-red"
                 viewBox="0 0 300 12"
@@ -70,11 +70,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-xl text-gray-200 leading-relaxed max-w-2xl mb-10 font-normal"
+            className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed max-w-2xl mb-10 font-normal"
           >
-            We bridge the gap between need and help — providing free quality
-            education, shelter for orphans, elder care homes, nutritious meals,
-            and lifesaving medical camps across India.
+            Every act of kindness has the power to change a life. We work to support children, senior citizens, families, and communities through education, healthcare, care, and social service.
           </motion.p>
 
           {/* Action Buttons */}
@@ -89,15 +87,10 @@ export default function Hero() {
               <FiArrowUpRight className="w-5 h-5" aria-hidden="true" />
             </Button>
 
-            <a
-              href="#how-we-help"
-              className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold backdrop-blur-md border border-white/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 group relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-700 before:ease-in-out before:pointer-events-none"
-            >
-              <span className="w-8 h-8 rounded-full bg-white text-brand-red flex items-center justify-center group-hover:scale-110 transition-transform">
-                <FiHeart className="w-3.5 h-3.5 fill-current" />
-              </span>
-              <span>Our Work in Action</span>
-            </a>
+            <Button href="/get-involved" size="lg" variant="outline-white">
+              <span>Join Our Mission</span>
+              <FiArrowUpRight className="w-5 h-5" aria-hidden="true" />
+            </Button>
           </motion.div>
 
           {/* Avatar stack + Volunteer badge */}

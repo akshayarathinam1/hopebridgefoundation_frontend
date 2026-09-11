@@ -113,7 +113,7 @@ export default function CtaBanner() {
               href="/get-involved"
               className="group/btn relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-brand-red hover:bg-brand-red-dark text-white text-sm font-bold shadow-[0_4px_18px_rgba(211,47,47,0.4)] hover:shadow-[0_8px_25px_rgba(211,47,47,0.55)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-700 before:ease-in-out before:pointer-events-none"
             >
-              <span>Contact Now</span>
+              <span>Join Our Mission</span>
               <FiArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
             </Link>
           </div>

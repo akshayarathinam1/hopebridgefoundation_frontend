@@ -9,48 +9,52 @@ import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from "react-icons/fi";
 
 const causes = [
   {
-    id: "clean-water",
-    title: "Give Health Support",
+    id: "education",
+    title: "Education for Every Child",
     description:
-      "Providing safe drinking water and emergency nutritional kits to families in drought-affected rural communities.",
-    category: "Water",
-    image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600&q=80",
+      "Help provide children with the resources and opportunities they need to continue their education and build their future.",
+    category: "Education",
+    image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80",
     raised: "₹38,000",
     goal: "₹50,000",
-    percentage: 65,
-  },
-  {
-    id: "orphan-meals",
-    title: "Children We Work With",
-    description:
-      "Supplying balanced, nutritious daily meals and health checkups for orphanages and elder care shelters across Chennai.",
-    category: "Health",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
-    raised: "₹84,000",
-    goal: "₹1,00,000",
-    percentage: 85,
-  },
-  {
-    id: "child-education",
-    title: "Help For Education",
-    description:
-      "Sponsoring school fees, uniforms, textbooks, and computer classes for underprivileged children dreaming of a future.",
-    category: "Food",
-    image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80",
-    raised: "₹36,000",
-    goal: "₹40,000",
-    percentage: 90,
+    percentage: 76,
+    ctaText: "Support Education",
   },
   {
     id: "elder-care",
-    title: "Help For Food",
+    title: "Care for Senior Citizens",
     description:
-      "Delivering hot nutritious meals, medical care, and dignified hospice support for destitute senior citizens every day.",
-    category: "Health",
+      "Help provide essential care, comfort, and support to elderly people who may be living without adequate assistance.",
+    category: "Elder Care",
     image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&q=80",
-    raised: "₹22,000",
-    goal: "₹30,000",
-    percentage: 75,
+    raised: "₹64,000",
+    goal: "₹80,000",
+    percentage: 80,
+    ctaText: "Support Elder Care",
+  },
+  {
+    id: "healthcare",
+    title: "Healthcare for Those in Need",
+    description:
+      "Your support can help individuals and families facing medical needs access essential healthcare assistance.",
+    category: "Healthcare",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
+    raised: "₹42,000",
+    goal: "₹50,000",
+    percentage: 84,
+    ctaText: "Support Healthcare",
+  },
+  {
+    id: "child-care",
+    title: "Care & Support for Children",
+    description:
+      "Help create safer, more supportive environments where children can grow, learn, and look forward to a brighter future.",
+    category: "Child Care",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
+    raised: "₹78,000",
+    goal: "₹90,000",
+    percentage: 87,
+    ctaText: "Support Child Care",
   },
 ];
 
@@ -62,7 +66,7 @@ export default function FeaturedCauses() {
   const prev = () => setCurrent((c) => (c - 1 + total) % total);
   const next = () => setCurrent((c) => (c + 1) % total);
 
-  // On desktop show all 4; arrows are still functional for future expansion
+  // On desktop show all 4; carousel arrows support rotation
   const orderedCauses = [
     ...causes.slice(current),
     ...causes.slice(0, current),
@@ -73,16 +77,19 @@ export default function FeaturedCauses() {
       <div className="container-site">
         {/* Header row */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
-          <div className="max-w-xl">
-            <SectionLabel>Featured Cause</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-brand-black mt-1">
-              Help &amp; <span className="text-brand-red">Donate</span> Them When
-              <br className="hidden sm:block" /> They&rsquo;re In Need
+          <div className="max-w-2xl">
+            <SectionLabel>Featured Causes</SectionLabel>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-brand-black mt-1 mb-3">
+              Where Your Support{" "}
+              <span className="text-brand-red">Makes a Difference</span>
             </h2>
+            <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
+              Your generosity helps us support initiatives that address some of the most important needs in our communities.
+            </p>
           </div>
 
           {/* Prev / Next arrows */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-3 flex-shrink-0 self-start sm:self-end">
             <button
               onClick={prev}
               aria-label="Previous causes"
@@ -112,32 +119,34 @@ export default function FeaturedCauses() {
               className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col group border border-gray-100"
             >
               {/* Image with category badge */}
-              <div className="relative h-52 w-full overflow-hidden flex-shrink-0">
+              <div className="relative h-52 w-full overflow-hidden flex-shrink-0 bg-gray-100">
                 <Image
                   src={cause.image}
                   alt={cause.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
-                {/* Category badge */}
-                <span className="absolute top-3 left-3 bg-brand-red text-white text-[11px] font-bold px-3 py-1 rounded-full tracking-wide shadow-md">
+                <span className="absolute top-3 left-3 bg-brand-red text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                   {cause.category}
                 </span>
               </div>
 
-              {/* Card body */}
-              <div className="p-5 flex-1 flex flex-col">
-                <h3 className="text-base font-bold text-brand-black mb-2 group-hover:text-brand-red transition-colors leading-snug">
-                  <Link href={`/donate?cause=${cause.id}`}>
-                    {cause.title}
-                  </Link>
-                </h3>
-                <p className="text-xs text-gray-500 leading-relaxed mb-5 line-clamp-3">
-                  {cause.description}
-                </p>
+              {/* Body content */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-base sm:text-[17px] font-bold text-brand-black mb-2.5 group-hover:text-brand-red transition-colors leading-snug">
+                    <Link href={`/donate?cause=${cause.id}`}>
+                      {cause.title}
+                    </Link>
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-relaxed mb-5 line-clamp-3">
+                    {cause.description}
+                  </p>
+                </div>
 
                 {/* Progress section */}
-                <div className="mt-auto">
+                <div className="mt-auto pt-2">
                   {/* Donation label + percent row */}
                   <div className="flex items-center justify-between text-xs font-semibold mb-1.5">
                     <span className="text-gray-400 uppercase tracking-wider">Donation</span>
@@ -167,12 +176,12 @@ export default function FeaturedCauses() {
                     </span>
                   </div>
 
-                  {/* Donate Now button — curved with subtle hover shine and diagonal arrow */}
+                  {/* Card CTA button matching user request */}
                   <Link
                     href={`/donate?cause=${cause.id}`}
-                    className="group/btn relative overflow-hidden w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border-2 border-brand-black text-brand-black text-sm font-bold hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300 shadow-sm hover:shadow-[0_6px_20px_rgba(211,47,47,0.35)] hover:-translate-y-0.5 active:translate-y-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-700 before:ease-in-out before:pointer-events-none"
+                    className="group/btn relative overflow-hidden w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border-2 border-brand-black text-brand-black text-xs sm:text-sm font-bold hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300 shadow-sm hover:shadow-[0_6px_20px_rgba(211,47,47,0.35)] hover:-translate-y-0.5 active:translate-y-0 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/35 before:to-transparent before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-700 before:ease-in-out before:pointer-events-none"
                   >
-                    <span>Donate Now</span>
+                    <span>{cause.ctaText}</span>
                     <FiArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </Link>
                 </div>
@@ -184,5 +193,3 @@ export default function FeaturedCauses() {
     </section>
   );
 }
-
-
