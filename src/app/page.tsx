@@ -7,7 +7,6 @@ import DonationImpactCard from "@/components/sections/DonationImpactCard";
 import PhotoMosaic from "@/components/sections/PhotoMosaic";
 import UpcomingEvents from "@/components/sections/UpcomingEvents";
 import FaqSection from "@/components/sections/FaqSection";
-import LatestNews from "@/components/sections/LatestNews";
 import CtaBanner from "@/components/sections/CtaBanner";
 
 export default function Home() {
@@ -40,10 +39,7 @@ export default function Home() {
       {/* 9. FAQ Section: Image + interactive accordion */}
       <FaqSection />
 
-      {/* 10. Latest News: 3 blog articles */}
-      <LatestNews />
-
-      {/* 11. CTA Banner: Deep green/red final donation call */}
+      {/* 10. CTA Banner: Deep green/red final donation call */}
       <CtaBanner />
     </main>
   );

@@ -36,7 +36,7 @@ const galleryPhotos = [
     caption: "Joy & Togetherness",
   },
   {
-    src: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb7?w=600&q=80",
+    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
     alt: "Emergency nutrition and food package distribution",
     caption: "Hot Meals Drive",
   },
@@ -57,8 +57,8 @@ const galleryPhotos = [
   },
 ];
 
-// Duplicate for seamless infinite loop
-const infinitePhotos = [...galleryPhotos, ...galleryPhotos];
+// Repeat gallery items 3 times so there are never empty gaps or blank sections on any screen size
+const infinitePhotos = [...galleryPhotos, ...galleryPhotos, ...galleryPhotos];
 
 export default function PhotoMosaic() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -69,16 +69,22 @@ export default function PhotoMosaic() {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
+    // Set initial scroll offset to the middle set so user can scroll left or right immediately
+    const oneThird = scrollContainer.scrollWidth / 3;
+    if (scrollContainer.scrollLeft === 0 && oneThird > 0) {
+      scrollContainer.scrollLeft = oneThird;
+    }
+
     const scrollSpeed = 0.8; // Smooth gentle pace
 
     const step = () => {
       if (!isPaused && scrollContainer) {
         scrollContainer.scrollLeft += scrollSpeed;
 
-        // Reset seamlessly when reaching half of the duplicated list
-        const halfWidth = scrollContainer.scrollWidth / 2;
-        if (scrollContainer.scrollLeft >= halfWidth) {
-          scrollContainer.scrollLeft -= halfWidth;
+        const singleSetWidth = scrollContainer.scrollWidth / 3;
+        // Seamlessly reset when passing into the third set
+        if (scrollContainer.scrollLeft >= singleSetWidth * 2) {
+          scrollContainer.scrollLeft -= singleSetWidth;
         }
       }
       animationFrameId.current = requestAnimationFrame(step);
@@ -97,9 +103,10 @@ export default function PhotoMosaic() {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
     const scrollAmount = 340;
+    const singleSetWidth = container.scrollWidth / 3;
     
-    if (container.scrollLeft - scrollAmount < 0) {
-      container.scrollLeft += container.scrollWidth / 2;
+    if (container.scrollLeft - scrollAmount < singleSetWidth * 0.2) {
+      container.scrollLeft += singleSetWidth;
     }
     container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
   };
@@ -108,10 +115,10 @@ export default function PhotoMosaic() {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
     const scrollAmount = 340;
+    const singleSetWidth = container.scrollWidth / 3;
 
-    const halfWidth = container.scrollWidth / 2;
-    if (container.scrollLeft + scrollAmount >= halfWidth * 2) {
-      container.scrollLeft -= halfWidth;
+    if (container.scrollLeft + scrollAmount > singleSetWidth * 2) {
+      container.scrollLeft -= singleSetWidth;
     }
     container.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };

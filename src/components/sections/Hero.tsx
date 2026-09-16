@@ -93,44 +93,6 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          {/* Avatar stack + Volunteer badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex items-center gap-4 mt-12 pt-8 border-t border-white/15"
-          >
-            <div className="flex -space-x-3 overflow-hidden">
-              <img
-                className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&q=80"
-                alt="Volunteer"
-              />
-              <img
-                className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80"
-                alt="Volunteer"
-              />
-              <img
-                className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80"
-                alt="Volunteer"
-              />
-              <img
-                className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=80"
-                alt="Volunteer"
-              />
-            </div>
-            <div>
-              <p className="text-sm font-bold text-white leading-tight">
-                120+ Active Volunteers
-              </p>
-              <p className="text-xs text-gray-300 font-medium mt-0.5">
-                On the ground transforming lives every day
-              </p>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

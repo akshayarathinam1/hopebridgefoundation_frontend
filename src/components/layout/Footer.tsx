@@ -13,9 +13,8 @@ import {
 const quickLinks = [
   { label: "About Us", href: "/about" },
   { label: "Our Programs", href: "/programs" },
-  { label: "Impact Stories", href: "/impact" },
-  { label: "Blog & News", href: "/blog" },
-  { label: "Annual Reports", href: "/impact#reports" },
+  { label: "Contact Us", href: "/contact" },
+  { label: "Donate Now", href: "/donate" },
 ];
 
 const programs = [
